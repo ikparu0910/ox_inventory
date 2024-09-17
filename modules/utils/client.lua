@@ -180,10 +180,12 @@ function Utils.nearbyMarker(point)
     if point.isClosest and point.currentDistance < 1.2 then
         if not hasTextUi then
             hasTextUi = point
-            lib.showTextUI(point.prompt.message, point.prompt.options)
+            -- lib.showTextUI(point.prompt.message, point.prompt.options)
         end
 
-        if IsControlJustReleased(0, 38) then
+        local pressed = exports.mp_lib:ImplCall('Lib', 'KeyPress', 'E', point.prompt.message, 500)
+
+        if pressed then
             CreateThread(function()
                 if point.inv == 'policeevidence' then
                     client.openInventory('policeevidence')
