@@ -13,6 +13,7 @@ import { closeTooltip } from '../../store/tooltip';
 import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
+import { Box, Text } from 'lr-components';
 
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -44,11 +45,33 @@ const Inventory: React.FC = () => {
     <>
       <Fade in={inventoryVisible}>
         <div className="inventory-wrapper">
+          <Text
+            position="absolute"
+            rTop={100}
+            left={'50%'}
+            transform="translateX(-50%)"
+            textTransform="uppercase"
+            fontFamily="Goldman"
+            rFontSize={40}
+            fontWeight={'bold'}
+          >
+            Kho đồ
+          </Text>
           <LeftInventory />
           <InventoryControl />
           <RightInventory />
           <Tooltip />
           <InventoryContext />
+          <Box
+            rWidth={750}
+            rHeight={750}
+            className="logo-sv"
+            position="absolute"
+            left={'50%'}
+            top={'50%'}
+            transform="translate(-50%, -50%)"
+            zIndex={-1}
+          ></Box>
         </div>
       </Fade>
       <InventoryHotbar />

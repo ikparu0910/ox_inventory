@@ -115,10 +115,11 @@ return {
 		},
 
 		['WEAPON_CARBINERIFLE'] = {
-			label = 'Carbine Rifle',
+			label = 'M4',
 			weight = 3100,
 			durability = 0.03,
-			ammoname = 'ammo-rifle'
+			ammoname = 'ammo-rifle',
+			itemType = 'mythic'
 		},
 
 		['WEAPON_CARBINERIFLE_MK2'] = {
@@ -227,7 +228,7 @@ return {
 		['WEAPON_FIREEXTINGUISHER'] = {
 			label = 'Fire Extinguisher',
 			weight = 8616,
-            durability = 0.006
+			durability = 0.006
 		},
 
 		['WEAPON_FIREWORK'] = {
@@ -740,7 +741,7 @@ return {
 			weight = 280,
 			type = 'muzzle',
 			client = {
-                image = 'at_suppressor.png',
+				image = 'at_suppressor.png',
 				component = {
 					`COMPONENT_AT_PI_SUPP`,
 					`COMPONENT_AT_PI_SUPP_02`,
@@ -756,7 +757,7 @@ return {
 			weight = 280,
 			type = 'muzzle',
 			client = {
-                image = 'at_suppressor.png',
+				image = 'at_suppressor.png',
 				component = {
 					`COMPONENT_AT_AR_SUPP`,
 					`COMPONENT_AT_AR_SUPP_02`,
@@ -804,7 +805,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+				image = 'at_clip_extended.png',
 				component = {
 					`COMPONENT_APPISTOL_CLIP_02`,
 					`COMPONENT_CERAMICPISTOL_CLIP_02`,
@@ -816,7 +817,7 @@ return {
 					`COMPONENT_SNSPISTOL_CLIP_02`,
 					`COMPONENT_SNSPISTOL_MK2_CLIP_02`,
 					`COMPONENT_VINTAGEPISTOL_CLIP_02`,
-                    `COMPONENT_TECPISTOL_CLIP_02`,
+					`COMPONENT_TECPISTOL_CLIP_02`,
 				},
 				usetime = 2500
 			}
@@ -827,7 +828,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+				image = 'at_clip_extended.png',
 				component = {
 					`COMPONENT_ASSAULTSMG_CLIP_02`,
 					`COMPONENT_COMBATPDW_CLIP_02`,
@@ -846,7 +847,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_ASSAULTSHOTGUN_CLIP_02`,
 					`COMPONENT_HEAVYSHOTGUN_CLIP_02`,
@@ -860,7 +861,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_ADVANCEDRIFLE_CLIP_02`,
 					`COMPONENT_ASSAULTRIFLE_CLIP_02`,
@@ -886,7 +887,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_GUSENBERG_CLIP_02`,
 					`COMPONENT_MG_CLIP_02`,
@@ -902,7 +903,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_HEAVYSNIPER_MK2_CLIP_02`,
 					`COMPONENT_MARKSMANRIFLE_CLIP_02`,
@@ -917,7 +918,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_COMBATPDW_CLIP_03`,
 					`COMPONENT_MACHINEPISTOL_CLIP_03`,
@@ -932,7 +933,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_HEAVYSHOTGUN_CLIP_03`
 				},
@@ -945,7 +946,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_ASSAULTRIFLE_CLIP_03`,
 					`COMPONENT_COMPACTRIFLE_CLIP_03`,
@@ -1785,96 +1786,115 @@ return {
 		['ammo-22'] = {
 			label = '.22 Long Rifle',
 			weight = 3,
+			itemType = 'common'
 		},
 
 		['ammo-38'] = {
 			label = '.38 LC',
 			weight = 15,
+			itemType = 'common'
 		},
 
 		['ammo-44'] = {
 			label = '.44 Magnum',
 			weight = 16,
+			itemType = 'common'
 		},
 
 		['ammo-45'] = {
 			label = '.45 ACP',
 			weight = 15,
+			itemType = 'common'
 		},
 
 		['ammo-50'] = {
 			label = '.50 AE',
 			weight = 45,
+			itemType = 'common'
 		},
 
 		['ammo-9'] = {
 			label = '9mm',
 			weight = 7,
+			itemType = 'common'
 		},
 
 		['ammo-firework'] = {
 			label = 'Firework',
 			weight = 200,
+			itemType = 'common'
 		},
 
 		['ammo-flare'] = {
 			label = 'Flare round',
 			weight = 38,
+			itemType = 'common'
 		},
 
 		['ammo-grenade'] = {
 			label = '40mm Explosive',
 			weight = 400,
+			itemType = 'common'
 		},
 
 		['ammo-heavysniper'] = {
 			label = '.50 BMG',
 			weight = 51,
+			itemType = 'common'
 		},
 
 		['ammo-laser'] = {
 			label = 'Laser charge',
 			weight = 1,
+			itemType = 'common'
 		},
 
 		['ammo-musket'] = {
 			label = '.50 Ball',
 			weight = 38,
+			itemType = 'common'
 		},
 
 		['ammo-railgun'] = {
 			label = 'Railgun charge',
 			weight = 150,
+			itemType = 'common'
 		},
 
 		['ammo-rifle'] = {
 			label = '5.56x45',
 			weight = 4,
+			itemType = 'common'
 		},
 
 		['ammo-rifle2'] = {
 			label = '7.62x39',
 			weight = 8,
+			itemType = 'common'
 		},
 
 		['ammo-rocket'] = {
 			label = 'Rocket',
 			weight = 500,
+			itemType = 'common'
 		},
 
 		['ammo-shotgun'] = {
 			label = '12 Gauge',
 			weight = 38,
+			itemType = 'common'
 		},
 
 		['ammo-sniper'] = {
 			label = '7.62x51',
 			weight = 9,
+			itemType = 'common'
 		},
 
 		['ammo-emp'] = {
 			label = 'EMP round',
 			weight = 400,
+			itemType = 'common'
 		},
 	}
 }

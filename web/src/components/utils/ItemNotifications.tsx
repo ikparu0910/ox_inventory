@@ -28,15 +28,31 @@ const ItemNotification = React.forwardRef(
   (props: { item: ItemNotificationProps; style?: React.CSSProperties }, ref: React.ForwardedRef<HTMLDivElement>) => {
     const slotItem = props.item.item;
 
+    const getGradientItem = () => {
+      if (Items[slotItem.name] && Items[slotItem.name]?.itemType) {
+        return gradientItemType[Items[slotItem.name].itemType || 'common'];
+      }
+    };
+
+    const gradientItemType = {
+      common: 'radial-gradient(circle, rgba(76,175,80,0.5) 50%, rgba(76,175,80,1) 100%',
+      uncommon: 'radial-gradient(circle, rgba(33,150,243,0.5) 50%, rgba(33,150,243,1) 100%)',
+      rare: 'radial-gradient(circle, rgba(156,39,176,0.5) 50%, rgba(156,39,176,1) 100%)',
+      epic: 'radial-gradient(circle, rgba(255,152,0,0.5) 50%, rgba(255,152,0,1) 100%)',
+      legendary: 'radial-gradient(circle, rgba(255,235,59,0.5) 50%, rgba(255,235,59,1) 100%)',
+      mythic: 'radial-gradient(circle, rgba(244,67,54,0.5) 50%, rgba(244,67,54,1) 100%)',
+    };
+
     return (
       <div
         className="item-notification-item-box"
         style={{
-          backgroundImage: `url(${getItemUrl(slotItem) || 'none'}`,
+          background: getGradientItem(),
           ...props.style,
         }}
         ref={ref}
       >
+        <div className="item-slot-image" style={{ backgroundImage: `url(${getItemUrl(slotItem) || 'none'}` }} />
         <div className="item-slot-wrapper">
           <div className="item-notification-action-box">
             <p>{props.item.text}</p>

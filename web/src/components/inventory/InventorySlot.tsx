@@ -15,6 +15,7 @@ import { ItemsPayload } from '../../reducers/refreshSlots';
 import { closeTooltip, openTooltip } from '../../store/tooltip';
 import { openContextMenu } from '../../store/contextMenu';
 import { useMergeRefs } from '@floating-ui/react';
+import { Text } from 'lr-components';
 
 interface SlotProps {
   inventoryId: Inventory['id'];
@@ -184,7 +185,7 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
           >
             {inventoryType === 'player' && item.slot <= 5 && <div className="inventory-slot-number">{item.slot}</div>}
             <div className="item-slot-info-wrapper">
-              <p>
+              <p id="item-weight">
                 {item.weight > 0
                   ? item.weight >= 1000
                     ? `${(item.weight / 1000).toLocaleString('en-us', {
@@ -195,12 +196,26 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
                       })}g `
                   : ''}
               </p>
-              <p>{item.count ? item.count.toLocaleString('en-us') + `x` : ''}</p>
+              <p id="item-count">{item.count ? item.count.toLocaleString('en-us') : ''}</p>
             </div>
           </div>
           <div>
             {inventoryType !== 'shop' && item?.durability !== undefined && (
-              <WeightBar percent={item.durability} durability />
+              <>
+                {/* <WeightBar percent={item.durability} durability /> */}
+                <Text
+                  rFontSize={12}
+                  fontFamily="Asap Condensed"
+                  position="absolute"
+                  rBottom={20}
+                  rRight={5}
+                  fontWeight={600}
+                  color="#80ed99"
+                  textShadow="1px 1px 1px #000000"
+                >
+                  {item.durability.toFixed(0)}%
+                </Text>
+              </>
             )}
             {inventoryType === 'shop' && item?.price !== undefined && (
               <>

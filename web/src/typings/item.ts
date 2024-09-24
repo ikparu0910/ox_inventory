@@ -5,6 +5,7 @@ export type ItemData = {
   usable: boolean;
   close: boolean;
   count: number;
+  itemType?: 'common' | 'uncommon' | 'epic' | 'rare' | 'legendary' | 'mythic';
   description?: string;
   buttons?: string[];
   ammoName?: string;

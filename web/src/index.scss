@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
 $mainColor: #22232c;
-$textColor: #c1c2c5;
-$mainFont: Roboto;
+$textColor: #fff;
+$mainFont: 'Asap Condensed';
 
 $secondaryColor: rgba(255, 255, 255, 0.4);
 $secondaryColorHighlight: #33343f;
@@ -15,8 +17,8 @@ $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gr
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Goldman', 'Roboto', 'Asap Condensed', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -58,7 +60,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .context-menu-list {
   min-width: 200px;
-  background-color: $mainColor;
+  background-color: rgba($color: $mainColor, $alpha: 0.8);
   color: $textColor;
   padding: 4px;
   border-color: rgba(0, 0, 0, 0.2);
@@ -84,7 +86,7 @@ input[type='number']::-webkit-outer-spin-button {
     transform: none;
   }
   &:hover {
-    background-color: $secondaryColorHighlight;
+    background-color: #519962;
     cursor: pointer;
   }
 }
@@ -126,8 +128,18 @@ button:active {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-
+  position: relative;
   gap: 20px;
+  z-index: 0;
+
+  .logo-sv {
+    background: url('./assets/webp/logo.webp');
+    position: absolute;
+    background-size: cover;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+  }
 }
 
 .inventory-control {
@@ -144,7 +156,7 @@ button:active {
   .inventory-control-input {
     transition: 200ms;
     padding: 16px 8px;
-    border-radius: 2.5%;
+    border-radius: 0.5vw;
     font-family: $mainFont;
     font-size: 16px;
     text-align: center;
@@ -153,7 +165,21 @@ button:active {
     color: #fff;
     background-color: $secondaryColor;
     &:focus-within {
-      background-color: $secondaryColorDark;
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695);
+      background-size: 600% 600%;
+      animation: moveGradient 10s ease infinite;
+    }
+  }
+
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 
@@ -163,20 +189,23 @@ button:active {
     background-color: $secondaryColor;
     transition: 200ms;
     padding: 12px 8px;
-    border-radius: 2.5%;
+    border-radius: 1vw;
     border: none;
     text-transform: uppercase;
     font-family: $mainFont;
     width: 100%;
     font-weight: 500;
+    transition: all 0.5s ease;
     &:hover {
-      background-color: $secondaryColorDark;
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695);
+      background-size: 600% 600%;
+      animation: moveGradient 10s ease infinite;
     }
   }
 }
 
 .useful-controls-dialog {
-  background-color: $mainColor;
+  background-color: #00304999;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -188,6 +217,7 @@ button:active {
   padding: 16px;
   border-radius: 4px;
   gap: 16px;
+  border: 1px solid #003049;
 }
 
 .useful-controls-dialog-overlay {
@@ -212,7 +242,7 @@ button:active {
   border-radius: 4px;
   fill: $textColor;
   &:hover {
-    background-color: $secondaryColorHighlight;
+    background-color: #003049;
     cursor: pointer;
   }
 }
@@ -271,7 +301,13 @@ button:active {
   flex-direction: row;
   justify-content: space-between;
   p {
-    font-size: 16px;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: #80ed99;
+    text-shadow: 0px 0px 3px #80ed99;
+  }
+  #player-weight {
+    color: #fff;
   }
 }
 
@@ -313,14 +349,10 @@ button:active {
 }
 
 .inventory-slot-label-box {
-  background-color: $mainColor;
   color: $textColor;
   text-align: center;
   border-bottom-left-radius: 0.25vh;
   border-bottom-right-radius: 0.25vh;
-  border-top-color: rgba(0, 0, 0, 0.2);
-  border-top-style: inset;
-  border-top-width: 1px;
 }
 
 .inventory-slot-label-text {
@@ -329,19 +361,22 @@ button:active {
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 2px 3px;
-  font-weight: 400;
+  font-weight: 500;
   font-family: $mainFont;
-  font-size: 12px;
+  font-size: 0.6vw;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .inventory-slot-number {
-  background-color: white;
-  color: black;
+  color: #fff;
   height: 12px;
   border-top-left-radius: 0.25vh;
   border-bottom-right-radius: 0.25vh;
-  padding: 3px;
-  font-size: 12px;
+  padding-top: 3px;
+  padding-left: 8px;
+  text-shadow: 1px 1px 1px #000000;
+  font-size: 15px;
+  font-weight: bold;
   font-family: $mainFont;
 }
 
@@ -374,6 +409,13 @@ button:active {
   gap: 3px;
   p {
     font-size: 12px;
+    font-weight: 500;
+  }
+  #item-count {
+    text-shadow: 1px 1px 1px #000000;
+  }
+  #item-weight {
+    text-shadow: 1px 1px 1px #000000;
   }
 }
 
@@ -403,7 +445,7 @@ button:active {
 .tooltip-wrapper {
   pointer-events: none;
   display: flex;
-  background-color: $mainColor;
+  background-color: rgba($color: $mainColor, $alpha: 0.8);
   width: 200px;
   padding: 8px;
   flex-direction: column;
@@ -411,6 +453,7 @@ button:active {
   color: $textColor;
   font-family: $mainFont;
   border-radius: 4px;
+  gap: 0.5vh;
   border-color: rgba(0, 0, 0, 0.2);
   border-style: inset;
   border-width: 1px;
@@ -500,7 +543,7 @@ button:active {
 .item-notification-action-box {
   width: 100%;
   color: $textColor;
-  background-color: $secondaryColor;
+  // background-color: $secondaryColor;
   text-transform: uppercase;
   text-align: center;
   border-top-left-radius: 0.25vh;

@@ -30,7 +30,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
           <div className="inventory-grid-header-wrapper">
             <p>{inventory.label}</p>
             {inventory.maxWeight && (
-              <p>
+              <p id="player-weight">
                 {weight / 1000}/{inventory.maxWeight / 1000}kg
               </p>
             )}
