@@ -149,6 +149,7 @@ return {
 
 	['money'] = {
 		label = 'Tiền mặt',
+		itemType = 'common'
 	},
 
 	['mustard'] = {

@@ -36,17 +36,19 @@ debugData([
               mayo: '10%',
             },
             count: 5,
+            itemType: 'common',
           },
-          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 75 } },
-          { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { type: 'Special' } },
+          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 75 }, itemType: 'rare' },
+          { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { type: 'Special' }, itemType: 'mythic' },
           {
             slot: 4,
             name: 'water',
             weight: 100,
             count: 1,
             metadata: { description: 'Generic item description' },
+            itemType: 'uncommon',
           },
-          { slot: 5, name: 'water', weight: 100, count: 1 },
+          { slot: 5, name: 'water', weight: 100, count: 1, itemType: 'epic' },
           {
             slot: 6,
             name: 'backwoods',
@@ -56,6 +58,7 @@ debugData([
               label: 'Russian Cream',
               imageurl: 'https://i.imgur.com/2xHhTTz.png',
             },
+            itemType: 'legendary',
           },
         ],
       },
@@ -119,8 +122,8 @@ const App: React.FC = () => {
   );
 };
 
-addEventListener("dragstart", function(event) {
-  event.preventDefault()
-})
+addEventListener('dragstart', function (event) {
+  event.preventDefault();
+});
 
 export default App;

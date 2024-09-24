@@ -117,7 +117,29 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
     }
   };
 
+  const getGradientItem = () => {
+    if (item.itemType) {
+      return gradientItemType[item.itemType];
+    }
+  };
+
+  const gradientItemType = {
+    common: 'radial-gradient(circle, rgba(76,175,80,0.5) 50%, rgba(76,175,80,1) 100%',
+    uncommon: 'radial-gradient(circle, rgba(33,150,243,0.5) 50%, rgba(33,150,243,1) 100%)',
+    rare: 'radial-gradient(circle, rgba(156,39,176,0.5) 50%, rgba(156,39,176,1) 100%)',
+    epic: 'radial-gradient(circle, rgba(255,152,0,0.5) 50%, rgba(255,152,0,1) 100%)',
+    legendary: 'radial-gradient(circle, rgba(255,235,59,0.5) 50%, rgba(255,235,59,1) 100%)',
+    mythic: 'radial-gradient(circle, rgba(244,67,54,0.5) 50%, rgba(244,67,54,1) 100%)',
+  };
+
   const refs = useMergeRefs([connectRef, ref]);
+
+  // 'radial-gradient(circle, rgba(76,175,80,0.5) 0%, rgba(76,175,80,1) 100%' common
+  // 'radial-gradient(circle, rgba(33,150,243,0.5) 0%, rgba(33,150,243,1) 100%)'  uncommon
+  // 'radial-gradient(circle, rgba(156,39,176,0.5) 0%, rgba(156,39,176,1) 100%)' rare
+  // 'radial-gradient(circle, rgba(255,152,0,0.5) 0%, rgba(255,152,0,1) 100%)' epic
+  // 'radial-gradient(circle, rgba(255,235,59,0.5) 0%, rgba(255,235,59,1) 100%)' legendary
+  // 'radial-gradient(circle, rgba(244,67,54,0.5) 0%, rgba(244,67,54,1) 100%)' mythic
 
   return (
     <div
@@ -131,10 +153,14 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
             ? 'brightness(80%) grayscale(100%)'
             : undefined,
         opacity: isDragging ? 0.4 : 1.0,
-        backgroundImage: `url(${item?.name ? getItemUrl(item as SlotWithItem) : 'none'}`,
+        background: getGradientItem(),
         border: isOver ? '1px dashed rgba(255,255,255,0.4)' : '',
       }}
     >
+      <div
+        className="item-slot-image"
+        style={{ backgroundImage: `url(${item?.name ? getItemUrl(item as SlotWithItem) : 'none'}` }}
+      />
       {isSlotWithItem(item) && (
         <div
           className="item-slot-wrapper"

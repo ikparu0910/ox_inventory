@@ -153,10 +153,10 @@ export const getItemUrl = (item: string | SlotWithItem) => {
   const itemName = isObj ? (item.name as string) : item;
   const itemData = Items[itemName];
 
-  if (!itemData) return `${imagepath}/${itemName}.png`;
+  if (!itemData) return `${imagepath}/${itemName}.webp`;
   if (itemData.image) return itemData.image;
 
-  itemData.image = `${imagepath}/${itemName}.png`;
+  itemData.image = `${imagepath}/${itemName}.webp`;
 
   return itemData.image;
 };

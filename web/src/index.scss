@@ -2,15 +2,15 @@ $mainColor: #22232c;
 $textColor: #c1c2c5;
 $mainFont: Roboto;
 
-$secondaryColor: rgba(12, 12, 12, 0.4);
-$secondaryColorHighlight: #33343F;
+$secondaryColor: rgba(255, 255, 255, 0.4);
+$secondaryColorHighlight: #33343f;
 $secondaryColorLight: rgba(0, 0, 0, 0.5);
 $secondaryColorDark: rgba(12, 12, 12, 0.8);
 
 $gridCols: 5;
 $gridRows: 5;
 $gridSize: 10.2vh;
-$gridGap: 2px;
+$gridGap: 0.2vw;
 $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap});
 
 body {
@@ -70,7 +70,7 @@ input[type='number']::-webkit-outer-spin-button {
   flex-direction: column;
 }
 
-.context-menu-item  {
+.context-menu-item {
   padding: 8px;
   border-radius: 4px;
   background-color: transparent;
@@ -121,6 +121,11 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
+  background: url('./assets/webp/bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
 
   gap: 20px;
 }
@@ -255,7 +260,6 @@ button:active {
 
 // Dialog is used fro useful controls window
 
-
 // inventory grids
 .inventory-grid-wrapper {
   display: flex;
@@ -285,7 +289,7 @@ button:active {
   background-color: $secondaryColor;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 2.5%;
+  border-radius: 4.5%;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
   background-size: 7vh;
@@ -293,6 +297,19 @@ button:active {
   border-color: rgba(0, 0, 0, 0.2);
   border-style: inset;
   border-width: 1px;
+  z-index: 0;
+}
+
+.item-slot-image {
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .inventory-slot-label-box {
@@ -382,7 +399,6 @@ button:active {
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
-
 
 .tooltip-wrapper {
   pointer-events: none;
@@ -536,7 +552,7 @@ button:active {
 }
 
 .transition-slide-up-enter {
-  transform: translateY(200px)
+  transform: translateY(200px);
 }
 
 .transition-slide-up-enter-active {

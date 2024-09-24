@@ -15,7 +15,7 @@ dependencies {
     'ox_lib',
 }
 
-shared_script '@ox_lib/init.lua'
+shared_script { '@ox_lib/init.lua', '@es_extended/imports.lua' }
 
 ox_libs {
     'locale',
@@ -39,7 +39,7 @@ files {
     'web/build/index.html',
     'web/build/assets/*.js',
     'web/build/assets/*.css',
-    'web/images/*.png',
+    'web/build/assets/*.webp',
     'modules/**/shared.lua',
     'modules/**/client.lua',
     'modules/bridge/**/client.lua',
